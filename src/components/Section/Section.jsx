@@ -1,19 +1,14 @@
+import { Title, Wrapper } from './Section.styled';
 import PropTypes from 'prop-types';
 
-import { SectionStyle, Title } from './Section.styled';
-
-const Section = ({ title, children }) => {
-  return (
-    <SectionStyle>
-      <Title>{title}</Title>
-      {children}
-    </SectionStyle>
-  );
-};
-
-export default Section;
+export const Section = ({ title, children }) => (
+  <Wrapper>
+    {title && <Title>{title}</Title>}
+    {children}
+  </Wrapper>
+);
 
 Section.propTypes = {
-  title: PropTypes.string.isRequired,
-  children: PropTypes.oneOfType([PropTypes.bool, PropTypes.element]).isRequired,
+  title: PropTypes.string,
+  children: PropTypes.object,
 };
